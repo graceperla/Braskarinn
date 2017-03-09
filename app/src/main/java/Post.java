@@ -6,7 +6,7 @@ public class Post {
     private int _id;
     private int _userId;
     private String _content;
-    private int _category;
+    private PostCategory _category;
 
     public int get_id() {
         return _id;
@@ -20,7 +20,7 @@ public class Post {
         return _content;
     }
 
-    public int get_category() {
+    public PostCategory get_category() {
         return _category;
     }
 
@@ -36,7 +36,7 @@ public class Post {
         this._content = _content;
     }
 
-    public void set_category(int _category) {
+    public void set_category(PostCategory _category) {
         this._category = _category;
     }
 
