@@ -11,10 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="is.hopur8.braskarinn.FrontActivity"
-    tools:showIn="@layout/activity_front">
+    tools:showIn="@layout/activity_front"
+    android:background="@drawable/background">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
 </RelativeLayout>
