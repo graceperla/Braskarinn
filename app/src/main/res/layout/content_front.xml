@@ -14,4 +14,52 @@
     tools:showIn="@layout/activity_front"
     android:background="@drawable/background">
 
+    <Button
+        android:text="Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:id="@+id/registerButton"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/background_light"
+        android:fontFamily="monospace" />
+
+    <Button
+        android:text="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/loginButton"
+        android:textSize="25sp"
+        android:layout_below="@+id/registerButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:textColor="@android:color/background_light"
+        android:fontFamily="monospace" />
+
+    <Button
+        android:text="View Ads"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/viewadsButton"
+        android:textSize="25sp"
+        android:layout_below="@+id/loginButton"
+        android:layout_alignLeft="@+id/registerButton"
+        android:layout_alignStart="@+id/registerButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:textColor="@android:color/background_light"
+        android:fontFamily="monospace" />
+
 </RelativeLayout>
