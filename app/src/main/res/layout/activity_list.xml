@@ -11,13 +11,13 @@
     tools:context="is.hopur8.braskarinn.ListActivity">
 
     <TextView
-        android:text="Auglýsingar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/listTitle" />
+        android:id="@+id/listTitle"
+        android:text="@string/list_ads" />
 
     <ListView
         android:layout_width="match_parent"
