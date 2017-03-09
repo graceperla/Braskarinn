@@ -4,11 +4,6 @@
     tools:context="is.hopur8.braskarinn.FrontActivity">
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_aboutus"
         android:orderInCategory="100"
         android:title="@string/action_aboutus"
@@ -17,5 +12,10 @@
         android:id="@+id/action_faq"
         android:orderInCategory="100"
         android:title="@string/action_faq"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="100"
+        android:title="@string/action_logout"
         app:showAsAction="never" />
 </menu>
