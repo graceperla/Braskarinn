@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "518244610519",
+    "firebase_url": "https://braskarinn-f485f.firebaseio.com",
+    "project_id": "braskarinn-f485f",
+    "storage_bucket": "braskarinn-f485f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518244610519:android:40010a6a30f275b0",
+        "android_client_info": {
+          "package_name": "is.hopur8.braskarinn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518244610519-8prifcj4p2ipd5s4r1ndtmcp06as7oob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr_eP9C2v-ZaYCGGz6mXQAdyzfqAO0gts"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
