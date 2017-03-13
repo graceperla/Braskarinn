@@ -14,4 +14,5 @@
     <string name="loginBut">Login</string>
     <string name="view_adsBut">View Ads</string>
     <string name="augl_singarFont">Auglýsingar</string>
+    <string name="act_login_button">Login</string>
 </resources>
