@@ -11,8 +11,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-    public void main_login(View v){
-
-    }
+//    public void main_login(View v){
+//
+//    }
 
 }
