@@ -15,7 +15,7 @@
     android:background="@drawable/background">
 
     <Button
-        android:text="Register"
+        android:text="@string/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
@@ -31,7 +31,7 @@
         android:fontFamily="monospace" />
 
     <Button
-        android:text="Login"
+        android:text="@string/loginBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -47,7 +47,7 @@
         android:fontFamily="monospace" />
 
     <Button
-        android:text="View Ads"
+        android:text="@string/view_adsBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"

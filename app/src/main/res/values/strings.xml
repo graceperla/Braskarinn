@@ -4,4 +4,14 @@
     <string name="action_aboutus">About Us</string>
     <string name="action_faq">FAQ</string>
     <string name="list_ads">Auglýsingar</string>
+    <string name="register">Register</string>
+    <string name="registerFont">Register</string>
+    <string name="nameHint">Name</string>
+    <string name="passwordHint">Password</string>
+    <string name="registerBut">Register</string>
+    <string name="emailHint">Email</string>
+    <string name="loginFont">Login</string>
+    <string name="loginBut">Login</string>
+    <string name="view_adsBut">View Ads</string>
+    <string name="augl_singarFont">Auglýsingar</string>
 </resources>
