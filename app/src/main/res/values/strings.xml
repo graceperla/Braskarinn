@@ -20,6 +20,7 @@
 
     <!--Login Page-->
     <string name="loginFont">Login</string>
+    <string name="act_login_button">LOGIN</string>
 
     <!--View Ads page-->
     <string name="list_ads">Auglýsingar</string>
