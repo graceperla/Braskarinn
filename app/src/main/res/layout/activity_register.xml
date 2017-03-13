@@ -43,18 +43,6 @@
         android:layout_alignRight="@id/register_name"
         android:hint="@string/passwordHint" />
 
-    <Button
-        android:onClick="register_register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/registerBut"
-        android:id="@+id/register_register"
-        android:layout_below="@+id/register_email"
-        android:layout_alignEnd="@+id/register_email"
-        android:layout_alignRight="@id/register_email"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,5 +55,17 @@
         android:layout_alignEnd="@+id/register_password"
         android:layout_alignRight="@id/register_password"
         android:hint="@string/emailHint" />
+
+    <Button
+        android:onClick="register_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registerBut"
+        android:id="@+id/register_register"
+        android:layout_below="@+id/register_email"
+        android:layout_alignEnd="@+id/register_email"
+        android:layout_alignRight="@id/register_email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

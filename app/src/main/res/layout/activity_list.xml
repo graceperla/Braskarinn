@@ -11,7 +11,7 @@
     tools:context="is.hopur8.braskarinn.ListActivity">
 
     <TextView
-        android:text="@string/augl_singarFont"
+        android:text="@string/auglysingarFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"

@@ -1,17 +1,31 @@
 <resources>
     <string name="app_name">Braskarinn</string>
-    <string name="action_logout">Log Out</string>
+
+    <!--Front page buttons-->
+    <string name="registerFront">Register</string>
+    <string name="loginFront">Login</string>
+    <string name="viewadsFront">View Ads</string>
+
+    <!--Dropdowns on title bar-->
     <string name="action_aboutus">About Us</string>
     <string name="action_faq">FAQ</string>
-    <string name="list_ads">Auglýsingar</string>
-    <string name="register">Register</string>
+    <string name="action_logout">Log Out</string>
+
+    <!--Register Page-->
     <string name="registerFont">Register</string>
     <string name="nameHint">Name</string>
     <string name="passwordHint">Password</string>
-    <string name="registerBut">Register</string>
     <string name="emailHint">Email</string>
+    <string name="registerBut">Register</string>
+
+    <!--Login Page-->
     <string name="loginFont">Login</string>
-    <string name="loginBut">Login</string>
-    <string name="view_adsBut">View Ads</string>
-    <string name="augl_singarFont">Auglýsingar</string>
+
+    <!--View Ads page-->
+    <string name="list_ads">Auglýsingar</string>
+    <string name="auglysingarFont">Auglýsingar</string>
+
+
+
+
 </resources>
