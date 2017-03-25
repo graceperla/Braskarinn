@@ -154,7 +154,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         // Send verification email
         // [START send_email_verification]
         final FirebaseUser user = firebaseAuth.getCurrentUser();
-        user.sendEmailVerification()
+        user.sendEmailVerification() //May throw java.lang.NullPointerException
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -172,7 +172,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                                     "Failed to send verification email.",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        // [END_EXCLUDE]
                     }
                 });
         // [END send_email_verification]
