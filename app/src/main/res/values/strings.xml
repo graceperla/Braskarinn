@@ -9,7 +9,6 @@
     <!--Dropdowns on title bar-->
     <string name="action_aboutus">About Us</string>
     <string name="action_faq">FAQ</string>
-    <string name="action_logout">Log Out</string>
 
     <!--Register Page-->
     <string name="registerFont">Register</string>
