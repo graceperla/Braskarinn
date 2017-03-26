@@ -43,7 +43,7 @@ public class ListActivity extends AppCompatActivity {
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
 
-                    String value = child.getKey();
+                    String value = child.child("title").getValue().toString();
                     mArraylistSectionLessons.add(value);
                     arrayAdapterLessons.notifyDataSetChanged();
 
@@ -54,7 +54,14 @@ public class ListActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
 
+
+
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     @Override
