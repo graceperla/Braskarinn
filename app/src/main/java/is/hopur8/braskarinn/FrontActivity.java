@@ -16,8 +16,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class FrontActivity extends AppCompatActivity {
 
-
-    private static final String TAG = "FrontActivity";
     private FirebaseAuth firebaseAuth;
 
     @Override
@@ -48,6 +46,16 @@ public class FrontActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button buttonProfile = (Button) findViewById(R.id.profileButton);
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
         updateUI(user);
     }
 

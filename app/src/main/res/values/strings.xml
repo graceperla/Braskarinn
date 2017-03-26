@@ -21,6 +21,12 @@
     <string name="loginFont">Login</string>
     <string name="act_login_button">LOGIN</string>
 
+    <!--Profile Page-->
+    <string name="confirm_username">Confirm</string>
+    <string name="hint_phone">phone</string>
+    <string name="userEmail">Placeholder</string>
+    <string name="userPhone">Placeholder</string>
+
     <!--View Ads page-->
     <string name="list_ads">Auglýsingar</string>
     <string name="auglysingarFont">Auglýsingar</string>
