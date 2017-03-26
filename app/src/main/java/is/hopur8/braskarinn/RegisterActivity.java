@@ -59,7 +59,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
-                // ...updateUI(user);
+                updateUI(user);
             }
         };
     }
