@@ -22,6 +22,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".NewPostActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".FaqActivity"></activity>
     </application>
 
 </manifest>
