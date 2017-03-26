@@ -2,8 +2,8 @@
     <string name="app_name">Braskarinn</string>
 
     <!--Front page buttons-->
-    <string name="registerFront">Register</string>
-    <string name="loginFront">Login</string>
+    <string name="registerFront">Login/Logout</string>
+    <string name="profileFront">Profile</string>
     <string name="viewadsFront">View Ads</string>
 
     <!--Dropdowns on title bar-->

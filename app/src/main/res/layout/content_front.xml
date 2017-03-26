@@ -31,29 +31,13 @@
         android:fontFamily="monospace" />
 
     <Button
-        android:text="@string/loginFront"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:id="@+id/loginButton"
-        android:textSize="25sp"
-        android:layout_below="@+id/registerButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:textColor="@android:color/background_light"
-        android:fontFamily="monospace" />
-
-    <Button
         android:text="@string/viewadsFront"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:id="@+id/viewadsButton"
         android:textSize="25sp"
-        android:layout_below="@+id/loginButton"
+        android:layout_below="@+id/registerButton"
         android:layout_alignLeft="@+id/registerButton"
         android:layout_alignStart="@+id/registerButton"
         android:layout_alignParentRight="true"
@@ -61,5 +45,35 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:textColor="@android:color/background_light"
         android:fontFamily="monospace" />
+
+    <LinearLayout
+        android:id="@+id/signed_in_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/viewadsButton"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="2.0">
+
+        <Button
+            android:id="@+id/profileButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/viewadsButton"
+            android:fontFamily="monospace"
+            android:text="@string/profileFront"
+            android:textColor="@android:color/background_light"
+            android:textSize="25sp" />
+    </LinearLayout>
 
 </RelativeLayout>

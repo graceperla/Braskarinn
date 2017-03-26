@@ -2,14 +2,23 @@ package is.hopur8.braskarinn;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class FrontActivity extends AppCompatActivity {
+
+
+    private static final String TAG = "FrontActivity";
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,20 +27,15 @@ public class FrontActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+
         Button buttonRegister = (Button) findViewById(R.id.registerButton);
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button buttonLogin = (Button) findViewById(R.id.loginButton);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -44,6 +48,15 @@ public class FrontActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        updateUI(user);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        updateUI(user);
     }
 
     @Override
@@ -51,6 +64,14 @@ public class FrontActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_front, menu);
         return true;
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            findViewById(R.id.signed_in_buttons).setVisibility(View.VISIBLE);
+        } else {
+            findViewById(R.id.signed_in_buttons).setVisibility(View.GONE);
+        }
     }
 
     @Override
