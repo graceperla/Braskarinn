@@ -48,7 +48,7 @@ public class FrontActivity extends AppCompatActivity {
         });
 
         Button buttonProfile = (Button) findViewById(R.id.profileButton);
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+        buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),ProfileActivity.class);
