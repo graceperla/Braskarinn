@@ -16,6 +16,7 @@ import java.util.Map;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class NewPostActivity extends AppCompatActivity {
 
     private EditText mNewPostTitle;
     private EditText mNewPostContent;
+    private Button mCreatePostButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class NewPostActivity extends AppCompatActivity {
 
         mNewPostTitle = (EditText) findViewById(R.id.newPostTitle);
         mNewPostContent = (EditText) findViewById(R.id.newPostContent);
+        mCreatePostButton = (Button) findViewById(R.id.createPostButton);
     }
 
 
@@ -62,15 +65,15 @@ public class NewPostActivity extends AppCompatActivity {
         }
 
         // Disable button so there are no multi-posts
-        //setEditingEnabled(false);
+        setEditingEnabled(false);
         Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
 
-        //final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         String key = mDatabase.child("posts").push().getKey();
 
         HashMap<String, Object> result = new HashMap<>();
-        result.put("uid", 666);
+        result.put("uid", userId);
         result.put("title", title);
         result.put("body", body);
 
@@ -79,5 +82,18 @@ public class NewPostActivity extends AppCompatActivity {
         childUpdates.put("/posts/" + key, result);
 
         mDatabase.updateChildren(childUpdates);
+
+        setEditingEnabled(true);
+        finish();
+    }
+
+    private void setEditingEnabled(boolean enabled) {
+        mNewPostTitle.setEnabled(enabled);
+        mNewPostContent.setEnabled(enabled);
+        if (enabled) {
+            mCreatePostButton.setVisibility(View.VISIBLE);
+        } else {
+            mCreatePostButton.setVisibility(View.GONE);
+        }
     }
 }
