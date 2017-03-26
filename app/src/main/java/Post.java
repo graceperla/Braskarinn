@@ -42,4 +42,8 @@ public class Post {
 
     public Post() {
     }
+
+    public static void createNewPost(int id, int userId, String content, int category) {
+
+    }
 }
