@@ -17,9 +17,11 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    private TextView mUsernameTextView;
     private TextView mEmailTextView;
     private TextView mPhoneTextView;
 
+    private FirebaseUser firebaseUser;
     private FirebaseAuth firebaseAuth;
 
     @Override

@@ -29,8 +29,17 @@ public class FrontActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
 
-        Button buttonRegister = (Button) findViewById(R.id.registerButton);
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+        Button buttonLogin = (Button) findViewById(R.id.loginButton);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button buttonLogout = (Button) findViewById(R.id.logoutButton);
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),RegisterActivity.class);
@@ -77,8 +86,10 @@ public class FrontActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if (user != null) {
             findViewById(R.id.signed_in_buttons).setVisibility(View.VISIBLE);
+            findViewById(R.id.signed_out_buttons).setVisibility(View.GONE);
         } else {
             findViewById(R.id.signed_in_buttons).setVisibility(View.GONE);
+            findViewById(R.id.signed_out_buttons).setVisibility(View.VISIBLE);
         }
     }
 

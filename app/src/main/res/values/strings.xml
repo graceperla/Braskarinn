@@ -2,7 +2,8 @@
     <string name="app_name">Braskarinn</string>
 
     <!--Front page buttons-->
-    <string name="registerFront">Login/Logout</string>
+    <string name="loginFront">Login</string>
+    <string name="logoutFront">Logout</string>
     <string name="profileFront">Profile</string>
     <string name="viewadsFront">View Ads</string>
 
@@ -16,10 +17,6 @@
     <string name="passwordHint">Password</string>
     <string name="emailHint">Email</string>
     <string name="registerBut">Register</string>
-
-    <!--Login Page-->
-    <string name="loginFont">Login</string>
-    <string name="act_login_button">LOGIN</string>
 
     <!--Profile Page-->
     <string name="confirm_username">Confirm</string>
