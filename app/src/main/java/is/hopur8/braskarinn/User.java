@@ -1,3 +1,5 @@
+package is.hopur8.braskarinn;
+
 /**
  * Created by anna on 09-Mar-17.
  */

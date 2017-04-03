@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class ListActivity extends AppCompatActivity {
 
     ListView mListView;
-    private ArrayList<String> mArraylistSectionLessons = new ArrayList<>();
+    private ArrayList<Post> mArraylistSectionPosts = new ArrayList<>();
     public static String clickedItem;
 
     private DatabaseReference mDatabase;
@@ -33,11 +34,39 @@ public class ListActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference("posts");
 
         mListView = (ListView) findViewById(R.id.postedList);
-        final ArrayAdapter<String> arrayAdapterLessons = new ArrayAdapter<String>(this, R.layout.list_view_item, mArraylistSectionLessons);
-        mListView.setAdapter(arrayAdapterLessons);
+        final PostArrayAdapter arrayAdapterPosts = new PostArrayAdapter(this, mArraylistSectionPosts);
+        mListView.setAdapter(arrayAdapterPosts);
 
+        mDatabase.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Post newPost = dataSnapshot.getValue(Post.class);
+                mArraylistSectionPosts.add(newPost);
+                arrayAdapterPosts.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         // Getting All Keys From Firebase Query
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        /*mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -45,7 +74,7 @@ public class ListActivity extends AppCompatActivity {
 
                     String value = child.child("title").getValue().toString();
                     mArraylistSectionLessons.add(value);
-                    arrayAdapterLessons.notifyDataSetChanged();
+                    arrayAdapterPosts.notifyDataSetChanged();
 
                 }
             }
@@ -56,7 +85,7 @@ public class ListActivity extends AppCompatActivity {
 
 
 
-        });
+        });*/
     }
 
     @Override

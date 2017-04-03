@@ -20,6 +20,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import is.hopur8.braskarinn.Post;
+
 public class NewPostActivity extends AppCompatActivity {
 
     private static final String TAG = "NewPostActivity";
@@ -72,7 +74,9 @@ public class NewPostActivity extends AppCompatActivity {
 
         String key = mDatabase.child("posts").push().getKey();
 
-        HashMap<String, Object> result = new HashMap<>();
+        Post post = new Post(key, userId, body, title);
+
+        /*HashMap<String, Object> result = new HashMap<>();
         result.put("uid", userId);
         result.put("title", title);
         result.put("body", body);
@@ -81,7 +85,9 @@ public class NewPostActivity extends AppCompatActivity {
 
         childUpdates.put("/posts/" + key, result);
 
-        mDatabase.updateChildren(childUpdates);
+        mDatabase.updateChildren(childUpdates);*/
+
+        mDatabase.child("posts").child(key).setValue(post);
 
         setEditingEnabled(true);
         finish();
