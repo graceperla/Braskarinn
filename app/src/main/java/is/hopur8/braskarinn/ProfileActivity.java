@@ -52,10 +52,18 @@ public class ProfileActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
 
         if (id == R.id.action_aboutus) {
+
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+
             return true;
         }
 
         if (id == R.id.action_faq) {
+
+            Intent intent = new Intent(this, FaqActivity.class);
+            startActivity(intent);
+
             return true;
         }
 

@@ -3,9 +3,9 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey_100"
     android:orientation="vertical"
-    android:weightSum="4">
+    android:weightSum="4"
+    android:background="@drawable/background">
 
 
     <LinearLayout
@@ -29,16 +29,19 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/title_bottom_margin"
             android:text="@string/emailpassword_title_text"
+            android:textColor="@color/tw__composer_white"
             android:theme="@style/ThemeOverlay.MyTitleText" />
 
         <TextView
             android:id="@+id/status"
             style="@style/ThemeOverlay.MyTextDetail"
-            android:text="@string/signed_out" />
+            android:text="@string/signed_out"
+            android:textColor="@color/tw__composer_white" />
 
         <TextView
             android:id="@+id/detail"
             style="@style/ThemeOverlay.MyTextDetail"
+            android:textColor="@color/tw__composer_white"
             tools:text="Firebase User ID: 123456789abc" />
 
     </LinearLayout>
@@ -48,8 +51,8 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/grey_300"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:background="@drawable/background">
 
         <LinearLayout
             android:id="@+id/email_password_fields"
@@ -65,7 +68,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/hint_email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@color/tw__composer_white"
+                android:textColorHint="@color/tw__solid_white"/>
 
             <EditText
                 android:id="@+id/field_password"
@@ -73,7 +78,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/hint_password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColorHint="@color/tw__solid_white"/>
         </LinearLayout>
 
         <LinearLayout

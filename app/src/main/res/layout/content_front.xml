@@ -5,79 +5,75 @@
     android:id="@+id/content_front"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:visibility="visible"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="is.hopur8.braskarinn.FrontActivity"
-    tools:showIn="@layout/activity_front"
-    android:background="@drawable/background">
+    tools:showIn="@layout/activity_front">
 
     <Button
         android:id="@+id/viewadsButton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="80dp"
         android:fontFamily="monospace"
         android:text="@string/viewadsFront"
         android:textColor="@android:color/background_light"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:visibility="visible" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/signed_out_buttons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="180dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:orientation="vertical"
         android:visibility="visible">
 
         <Button
             android:id="@+id/loginButton"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp"
             android:fontFamily="monospace"
             android:text="@string/loginFront"
             android:textColor="@android:color/background_light"
             android:textSize="25sp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/signed_in_buttons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="48dp"
         android:orientation="vertical"
         android:visibility="gone"
         android:weightSum="2.0">
-        android:layout_marginTop="140dp"
 
         <Button
             android:id="@+id/logoutButton"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
             android:fontFamily="monospace"
             android:text="@string/logoutFront"
             android:textColor="@android:color/background_light"
@@ -89,16 +85,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="60dp"
+            android:layout_below="@+id/logoutButton"
+            android:layout_marginTop="100dp"
             android:fontFamily="monospace"
             android:text="@string/profileFront"
             android:textColor="@android:color/background_light"
             android:textSize="25sp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>
