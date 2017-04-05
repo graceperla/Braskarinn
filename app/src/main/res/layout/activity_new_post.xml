@@ -49,14 +49,14 @@
             android:id="@+id/newPostContent"
             android:layout_width="wrap_content"
             android:layout_height="229dp"
+            android:layout_above="@+id/createPostButton"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="14dp"
             android:background="@color/tw__composer_white"
             android:ems="10"
             android:inputType="textMultiLine"
             tools:layout_editor_absoluteX="25dp"
-            tools:layout_editor_absoluteY="150dp"
-            android:layout_above="@+id/createPostButton"
-            android:layout_centerHorizontal="true" />
+            tools:layout_editor_absoluteY="150dp" />
 
         <TextView
             android:id="@+id/textView"

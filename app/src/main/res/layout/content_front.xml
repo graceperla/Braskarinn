@@ -21,13 +21,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:drawableLeft="@drawable/viewads"
         android:fontFamily="monospace"
         android:text="@string/viewadsFront"
         android:textColor="@color/black"
-        android:textSize="25sp"
-        android:visibility="visible" />
+        android:textSize="25sp" />
 
     <RelativeLayout
         android:id="@+id/signed_out_buttons"
@@ -37,7 +37,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <Button
             android:id="@+id/loginButton"
@@ -47,10 +47,12 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="140dp"
+            android:drawableLeft="@drawable/login"
             android:fontFamily="monospace"
             android:text="@string/loginFront"
             android:textColor="@color/black"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:visibility="visible" />
 
     </RelativeLayout>
 
@@ -63,7 +65,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="48dp"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         android:weightSum="2.0">
 
         <Button
@@ -74,6 +76,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="90dp"
+            android:drawableLeft="@drawable/login"
             android:fontFamily="monospace"
             android:text="@string/logoutFront"
             android:textColor="@color/black"
@@ -88,6 +91,9 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/logoutButton"
             android:layout_marginTop="100dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:drawableLeft="@drawable/profile"
             android:fontFamily="monospace"
             android:text="@string/profileFront"
             android:textColor="@color/black"
