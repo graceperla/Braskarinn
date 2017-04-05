@@ -3,6 +3,7 @@ package is.hopur8.braskarinn;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +34,8 @@ public class NewPostActivity extends AppCompatActivity {
     private EditText mNewPostContent;
     private Button mCreatePostButton;
 
+    private FirebaseAuth firebaseAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,8 @@ public class NewPostActivity extends AppCompatActivity {
         mNewPostTitle = (EditText) findViewById(R.id.newPostTitle);
         mNewPostContent = (EditText) findViewById(R.id.newPostContent);
         mCreatePostButton = (Button) findViewById(R.id.createPostButton);
+
+
     }
 
 
@@ -54,6 +59,17 @@ public class NewPostActivity extends AppCompatActivity {
         final String title = mNewPostTitle.getText().toString();
         final String body = mNewPostContent.getText().toString();
 
+        FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
+        if(user == null){
+            Toast.makeText(this, "Log in before posting", Toast.LENGTH_SHORT).show();
+            return;
+        }
+/*
+        if(user.isEmailVerified() == false){
+            Toast.makeText(this, "Verify email before posting", Toast.LENGTH_SHORT).show();
+            return;
+        }
+*/
         // Title is required
         if (TextUtils.isEmpty(title)) {
             mNewPostTitle.setError(REQUIRED);
@@ -70,7 +86,7 @@ public class NewPostActivity extends AppCompatActivity {
         setEditingEnabled(false);
         Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
 
-        final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final String userId = user.getUid();
 
         String key = mDatabase.child("posts").push().getKey();
 
