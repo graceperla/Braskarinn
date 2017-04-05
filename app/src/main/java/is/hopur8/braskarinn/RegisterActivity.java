@@ -115,13 +115,13 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 });
         // [END create_user_with_email]
 
-        String newUserId = firebaseAuth.getCurrentUser().getUid();
+        /*String newUserId = firebaseAuth.getCurrentUser().getUid();
         if(newUserId != "") {
             User newUser = new User(newUserId, email);
 
             mDatabase.child("users").child(newUserId).setValue(newUser);
 
-        }
+        }*/
 
     }
 
