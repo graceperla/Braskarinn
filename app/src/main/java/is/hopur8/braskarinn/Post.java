@@ -9,10 +9,28 @@ import java.util.Date;
 public class Post {
     private String _id;
     private String _userId;
+    private String _userEmail;
+    private String _userName;
     private String _content;
     private String _title;
     private long _negativeTimeStamp;
     //private is.hopur8.braskarinn.PostCategory _category;
+
+    public String get_userEmail() {
+        return _userEmail;
+    }
+
+    public void set_userEmail(String _userEmail) {
+        this._userEmail = _userEmail;
+    }
+
+    public String get_userName() {
+        return _userName;
+    }
+
+    public void set_userName(String _userName) {
+        this._userName = _userName;
+    }
 
     public String get_id() {
         return _id;
@@ -65,11 +83,13 @@ public class Post {
     public Post() {
     }
 
-    public Post(String id, String userId, String content, String title) {
+    public Post(String id, String userId, String content, String title, String userEmail, String userName) {
         this._id = id;
         this._userId = userId;
         this._content = content;
         this._title = title;
+        this._userEmail = userEmail;
+        this._userName = userName;
         this._negativeTimeStamp = -1 * new Date().getTime();
     }
 }

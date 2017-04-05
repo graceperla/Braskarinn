@@ -90,7 +90,7 @@ public class NewPostActivity extends AppCompatActivity {
 
         String key = mDatabase.child("posts").push().getKey();
 
-        Post post = new Post(key, userId, body, title);
+        Post post = new Post(key, userId, body, title, user.getEmail(), user.getDisplayName());
 
         /*HashMap<String, Object> result = new HashMap<>();
         result.put("uid", userId);

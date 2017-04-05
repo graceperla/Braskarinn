@@ -44,7 +44,11 @@ public class ViewPostActivity extends AppCompatActivity {
                 currentPost = dataSnapshot.getValue(Post.class);
                 postTitle.setText(currentPost.get_title());
                 postContent.setText(currentPost.get_content());
-                FindPostedUser();
+                if(currentPost.get_userName() != null)
+                    postUser.setText(currentPost.get_userName() + "\n" + currentPost.get_userEmail());
+                else
+                    postUser.setText(currentPost.get_userEmail());
+                //FindPostedUser();
             }
 
             @Override

@@ -44,7 +44,8 @@ public class ListActivity extends AppCompatActivity {
         final PostArrayAdapter arrayAdapterPosts = new PostArrayAdapter(this, mArraylistSectionPosts);
         mListView.setAdapter(arrayAdapterPosts);
 
-        Query query = mDatabase.orderByChild("_negativeTimeStamp");
+        //Query query = mDatabase.orderByChild("_negativeTimeStamp");
+        Query query = mDatabase.limitToLast(50);
         query.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
