@@ -30,9 +30,9 @@
         android:paddingStart="?android:attr/listPreferredItemPaddingStart"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-        android:textColor="@color/tw__composer_white"
-        android:textColorLink="@color/tw__composer_white"
-        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textColorLink="@color/black"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -46,7 +46,7 @@
         android:paddingRight="?android:attr/listPreferredItemPaddingRight"
         android:paddingStart="?android:attr/listPreferredItemPaddingStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/tw__composer_white"
-        android:textColorLink="@color/tw__composer_white"
-        android:textSize="14dp" />
+        android:textColor="@color/GREY"
+        android:textColorLink="@color/GREY"
+        android:textSize="14sp" />
 </LinearLayout>

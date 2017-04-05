@@ -26,7 +26,7 @@
 
     <!--View Ads page-->
     <string name="list_ads">Auglýsingar</string>
-    <string name="auglysingarFont">Auglýsingar</string>
+    <string name="auglysingarFont">Advertising</string>
 
     <string name="label_google_sign_in">Firebase + Google Sign In</string>
     <string name="desc_google_sign_in">Use a Google Sign In credential to authenticate with Firebase.</string>

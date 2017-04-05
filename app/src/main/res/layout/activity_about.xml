@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="is.hopur8.braskarinn.AboutActivity"
-    android:background="@drawable/background"
-    android:orientation="vertical">
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="is.hopur8.braskarinn.AboutActivity">
 
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Something about Marry!"
-        android:textSize="20dp"
-        android:textColor="@color/tw__solid_white"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="203dp" />
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
