@@ -8,8 +8,20 @@
     <string name="viewadsFront">View Ads</string>
 
     <!--Dropdowns on title bar-->
-    <string name="action_aboutus">About Us</string>
+    <string name="action_aboutus">About Braskarinn</string>
     <string name="action_faq">FAQ</string>
+
+    <!--Burgermenu items-->
+    <string name="aboutBraskarinn">About Braskarinn</string>
+    <string name="aboutText">Braskarinn is a project in Software Project 2 at
+    University of Iceland, spring 2017. This course focus on mobile app development.
+    Braskarinn is a sales applications specifically catered towards individuals looking
+    to sell their pre-owned items, or other small items, quickly and easily.</string>
+    <string name="board">Board</string>
+    <string name="boardnames">Anna Margrét Björnsdóttir Anton Örn Kristjánsson
+    Birgir Sveinn Jakobsson Sindri Fannar Völuson</string>
+    <string name="Faq">Frequently asked questions and answers</string>
+    <string name="FaqText">No questions asked!</string>
 
     <!--Register Page-->
     <string name="registerFont">Register</string>
