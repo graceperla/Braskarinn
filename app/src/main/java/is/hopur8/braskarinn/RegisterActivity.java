@@ -25,6 +25,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private EditText mEmailField;
     private EditText mPasswordField;
 
+    //Firebase authentication object
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
 

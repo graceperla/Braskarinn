@@ -12,16 +12,18 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/user_email"
+            android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/userEmail" />
+            android:text="@string/userEmail"
+            android:textColor="@color/tw__solid_white" />
 
         <TextView
-            android:id="@+id/user_phone"
+            android:id="@+id/userEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="@string/userPhone" />
+            android:text="@string/userPhone"
+            android:textColor="@color/tw__solid_white" />
 
     </LinearLayout>
 
@@ -37,16 +39,16 @@
             android:visibility="visible">
 
             <EditText
-                android:id="@+id/phoneNumber"
+                android:id="@+id/newName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="@string/hint_phone"
-                android:inputType="phone" />
+                android:hint="@string/hint_username"
+                android:inputType="text" />
 
             <Button
-                android:id="@+id/confirmPhoneNumber"
+                android:id="@+id/changeUsernameButton"
                 android:layout_width="184dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorAccent"

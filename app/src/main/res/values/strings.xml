@@ -21,8 +21,12 @@
     <!--Profile Page-->
     <string name="confirm_username">Confirm</string>
     <string name="hint_phone">phone</string>
+    <string name="hint_username">username</string>
+    <string name="userName">Placeholder</string>
     <string name="userEmail">Placeholder</string>
     <string name="userPhone">Placeholder</string>
+    <string name="profileEmail">User Email: %1$s </string>
+    <string name="profileUsername">User displayname: %1$s </string>
 
     <!--View Ads page-->
     <string name="list_ads">Auglýsingar</string>
