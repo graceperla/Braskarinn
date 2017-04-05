@@ -5,27 +5,18 @@ package is.hopur8.braskarinn;
  */
 
 public class User {
-    private int _id;
-    private int _password;
+    private String _id;
     private String _name;
     private String _email;
     private String _phone;
     private int _rating;
 
-    public int get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(int _id) {
+    public void set_id(String _id) {
         this._id = _id;
-    }
-
-    public int get_password() {
-        return _password;
-    }
-
-    public void set_password(int _password) {
-        this._password = _password;
     }
 
     public String get_name() {
@@ -61,5 +52,10 @@ public class User {
     }
 
     public User() {
+    }
+
+    public User(String id, String email) {
+        this._id = id;
+        this._email = email;
     }
 }

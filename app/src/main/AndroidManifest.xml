@@ -23,7 +23,8 @@
         <activity android:name=".NewPostActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".FaqActivity"></activity>
+        <activity android:name=".FaqActivity" />
+        <activity android:name=".ViewPostActivity"></activity>
     </application>
 
 </manifest>

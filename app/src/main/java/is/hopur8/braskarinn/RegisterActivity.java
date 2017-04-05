@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener {
 
@@ -28,6 +30,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     //Firebase authentication object
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
+
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
         //Initialize firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         firebaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -85,6 +91,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
         showProgressDialog();
 
+
+
         // [START create_user_with_email]
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -106,6 +114,15 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     }
                 });
         // [END create_user_with_email]
+
+        String newUserId = firebaseAuth.getCurrentUser().getUid();
+        if(newUserId != "") {
+            User newUser = new User(newUserId, email);
+
+            mDatabase.child("users").child(newUserId).setValue(newUser);
+
+        }
+
     }
 
     private void signIn(String email, String password) {

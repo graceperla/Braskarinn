@@ -3,9 +3,11 @@ package is.hopur8.braskarinn;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -14,11 +16,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
+
+    private static final String TAG = "ListActivity";
 
     ListView mListView;
     private ArrayList<Post> mArraylistSectionPosts = new ArrayList<>();
@@ -34,30 +39,45 @@ public class ListActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference("posts");
 
         mListView = (ListView) findViewById(R.id.postedList);
+        //mListView.setStackFromBottom(true);
+
         final PostArrayAdapter arrayAdapterPosts = new PostArrayAdapter(this, mArraylistSectionPosts);
         mListView.setAdapter(arrayAdapterPosts);
 
-        mDatabase.addChildEventListener(new ChildEventListener() {
+        Query query = mDatabase.orderByChild("_negativeTimeStamp");
+        query.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Post newPost = dataSnapshot.getValue(Post.class);
-                mArraylistSectionPosts.add(newPost);
+                mArraylistSectionPosts.add(0, newPost);
                 arrayAdapterPosts.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                Post changedPost = dataSnapshot.getValue(Post.class);
+                for(int i = 0;i < mArraylistSectionPosts.size();i++) {
+                    if(mArraylistSectionPosts.get(i).get_id().equals(changedPost.get_id())) {
+                        mArraylistSectionPosts.set(i,changedPost);
+                        arrayAdapterPosts.notifyDataSetChanged();
+                    }
+                }
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                Post removedPost = dataSnapshot.getValue(Post.class);
+                for(int i = 0;i < mArraylistSectionPosts.size();i++) {
+                    if(mArraylistSectionPosts.get(i).get_id().equals(removedPost.get_id())) {
+                        mArraylistSectionPosts.remove(i);
+                        arrayAdapterPosts.notifyDataSetChanged();
+                    }
+                }
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                //Things should not be moving, so don´t need this
             }
 
             @Override
@@ -65,27 +85,22 @@ public class ListActivity extends AppCompatActivity {
 
             }
         });
-        // Getting All Keys From Firebase Query
-        /*mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                Log.i(TAG, String.valueOf(position));
+                Log.i(TAG, String.valueOf(id));
+                String test = mArraylistSectionPosts.get(position).get_id();
 
-                    String value = child.child("title").getValue().toString();
-                    mArraylistSectionLessons.add(value);
-                    arrayAdapterPosts.notifyDataSetChanged();
+                Intent intent = new Intent(getApplicationContext(),ViewPostActivity.class);
+                intent.putExtra("KEY", test);
+                startActivity(intent);
 
-                }
             }
+        });
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-
-
-
-        });*/
     }
 
     @Override
