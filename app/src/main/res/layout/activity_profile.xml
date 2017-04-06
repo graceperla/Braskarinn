@@ -70,7 +70,9 @@
             android:layout_marginLeft="18dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="22dp"
-            android:text="Your posts" />
+            android:text="Your posts"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <ListView
             android:id="@+id/profilePostList"
