@@ -15,38 +15,42 @@
     tools:context="is.hopur8.braskarinn.FrontActivity"
     tools:showIn="@layout/activity_front">
 
-    <Button
-        android:id="@+id/viewadsButton"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+    <RelativeLayout
+        android:id="@+id/viewAds"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:drawableLeft="@drawable/viewads"
-        android:fontFamily="monospace"
-        android:text="@string/viewadsFront"
-        android:textColor="@color/black"
-        android:textSize="25sp" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp">
+
+        <Button
+            android:id="@+id/viewadsButton"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:drawableLeft="@drawable/viewads"
+            android:fontFamily="monospace"
+            android:text="@string/viewadsFront"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/signed_out_buttons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewAds"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
         android:visibility="gone">
 
         <Button
             android:id="@+id/loginButton"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="0dp"
             android:drawableLeft="@drawable/login"
             android:fontFamily="monospace"
             android:text="@string/loginFront"
@@ -59,11 +63,9 @@
     <RelativeLayout
         android:id="@+id/signed_in_buttons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="48dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/viewAds"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
         android:visibility="visible"
         android:weightSum="2.0">
@@ -71,11 +73,10 @@
         <Button
             android:id="@+id/logoutButton"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="90dp"
             android:drawableLeft="@drawable/login"
             android:fontFamily="monospace"
             android:text="@string/logoutFront"
@@ -90,9 +91,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/logoutButton"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp"
+            android:layout_marginTop="60dp"
             android:drawableLeft="@drawable/profile"
             android:fontFamily="monospace"
             android:text="@string/profileFront"

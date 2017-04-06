@@ -185,7 +185,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     user.getEmail()));
             if(user.getDisplayName() != null) mUsernameTextView.setText(getString(R.string.profileUsername,
                     user.getDisplayName()));
-
+            findViewById(R.id.newName).setEnabled(user.getDisplayName()==null);
+            findViewById(R.id.changeUsernameButton).setEnabled(user.getDisplayName() == null);
         }
     }
 

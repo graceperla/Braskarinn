@@ -4,15 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,8 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import is.hopur8.braskarinn.Post;
 
 public class NewPostActivity extends AppCompatActivity {
 
@@ -32,6 +24,7 @@ public class NewPostActivity extends AppCompatActivity {
 
     private EditText mNewPostTitle;
     private EditText mNewPostContent;
+    private EditText mPhoneInformation;
     private Button mCreatePostButton;
 
     private FirebaseAuth firebaseAuth;
@@ -45,10 +38,10 @@ public class NewPostActivity extends AppCompatActivity {
 
         Log.i(TAG,"START");
 
-        mNewPostTitle = (EditText) findViewById(R.id.newPostTitle);
-        mNewPostContent = (EditText) findViewById(R.id.newPostContent);
+        mNewPostTitle = (EditText) findViewById(R.id.titleContentField);
+        mPhoneInformation = (EditText) findViewById(R.id.phoneContentField);
+        mNewPostContent = (EditText) findViewById(R.id.postContentField);
         mCreatePostButton = (Button) findViewById(R.id.createPostButton);
-
 
     }
 
@@ -58,25 +51,35 @@ public class NewPostActivity extends AppCompatActivity {
 
         final String title = mNewPostTitle.getText().toString();
         final String body = mNewPostContent.getText().toString();
+        final String phone = mPhoneInformation.getText().toString();
 
         FirebaseUser user = firebaseAuth.getInstance().getCurrentUser();
+
+        //User has to be logged in to post.
         if(user == null){
             Toast.makeText(this, "Log in before posting", Toast.LENGTH_SHORT).show();
             return;
         }
-/*
+
+        // Email verification required to post.
         if(user.isEmailVerified() == false){
             Toast.makeText(this, "Verify email before posting", Toast.LENGTH_SHORT).show();
             return;
         }
-*/
-        // Title is required
+
+        // Title is required.
         if (TextUtils.isEmpty(title)) {
             mNewPostTitle.setError(REQUIRED);
             return;
         }
 
-        // Body is required
+        // Phone number is required.
+        if (TextUtils.isEmpty(phone)){
+            mPhoneInformation.setError(REQUIRED);
+            return;
+        }
+
+        // Body is required.
         if (TextUtils.isEmpty(body)) {
             mNewPostContent.setError(REQUIRED);
             return;
@@ -90,7 +93,7 @@ public class NewPostActivity extends AppCompatActivity {
 
         String key = mDatabase.child("posts").push().getKey();
 
-        Post post = new Post(key, userId, body, title, user.getEmail(), user.getDisplayName());
+        Post post = new Post(key, userId, body, title, phone,  user.getEmail(), user.getDisplayName());
 
         /*HashMap<String, Object> result = new HashMap<>();
         result.put("uid", userId);

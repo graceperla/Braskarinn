@@ -11,6 +11,7 @@ public class Post {
     private String _userId;
     private String _userEmail;
     private String _userName;
+    private String _phoneNumber;
     private String _content;
     private String _title;
     private long _negativeTimeStamp;
@@ -38,6 +39,10 @@ public class Post {
 
     public String get_userId() {
         return _userId;
+    }
+
+    public String get_phoneNumber(){
+        return _phoneNumber;
     }
 
     public String get_content() {
@@ -68,6 +73,10 @@ public class Post {
         this._content = content;
     }
 
+    public void set_phoneNumber(String phoneNumber){
+        this._phoneNumber = phoneNumber;
+    }
+
     public void set_title(String title) {
         this._title = title;
     }
@@ -83,11 +92,12 @@ public class Post {
     public Post() {
     }
 
-    public Post(String id, String userId, String content, String title, String userEmail, String userName) {
+    public Post(String id, String userId, String content, String title, String phoneNumber, String userEmail, String userName) {
         this._id = id;
         this._userId = userId;
         this._content = content;
         this._title = title;
+        this._phoneNumber = phoneNumber;
         this._userEmail = userEmail;
         this._userName = userName;
         this._negativeTimeStamp = -1 * new Date().getTime();
