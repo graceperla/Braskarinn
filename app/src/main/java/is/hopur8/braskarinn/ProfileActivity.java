@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
+import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -29,8 +39,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView mUsernameTextView;
     private TextView mEmailTextView;
     private EditText mUsernameField;
+    private ListView mListViewProfile;
+    private ArrayList<Post> mArraylistProfilePosts = new ArrayList<>();
 
     private FirebaseAuth firebaseAuth;
+
+    private DatabaseReference mDatabase;
 
 
     public ProfileActivity() {
@@ -49,8 +63,81 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //Initialize buttons
         findViewById(R.id.changeUsernameButton).setOnClickListener(this);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         updateUI(user);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("posts");
+
+        mListViewProfile = (ListView) findViewById(R.id.profilePostList);
+
+        final PostArrayAdapter arrayAdapterPosts = new PostArrayAdapter(this, mArraylistProfilePosts);
+        mListViewProfile.setAdapter(arrayAdapterPosts);
+
+        //Query query = mDatabase.limitToLast(50);
+        mDatabase.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Post newPost = dataSnapshot.getValue(Post.class);
+                String temp = user.getUid();
+                String temp2 = newPost.get_userId();
+                if(newPost.get_userId().equals(user.getUid())) {
+                    mArraylistProfilePosts.add(0, newPost);
+                    arrayAdapterPosts.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Post changedPost = dataSnapshot.getValue(Post.class);
+                if(changedPost.get_userId().equals(user.getUid())) {
+                    for (int i = 0; i < mArraylistProfilePosts.size(); i++) {
+                        if (mArraylistProfilePosts.get(i).get_id().equals(changedPost.get_id())) {
+                            mArraylistProfilePosts.set(i, changedPost);
+                            arrayAdapterPosts.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                Post removedPost = dataSnapshot.getValue(Post.class);
+                if(removedPost.get_userId().equals(user.getUid())) {
+                    for (int i = 0; i < mArraylistProfilePosts.size(); i++) {
+                        if (mArraylistProfilePosts.get(i).get_id().equals(removedPost.get_id())) {
+                            mArraylistProfilePosts.remove(i);
+                            arrayAdapterPosts.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                //Things should not be moving, so don´t need this
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        /*mListViewProfile.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Log.i(TAG, String.valueOf(position));
+                Log.i(TAG, String.valueOf(id));
+                String test = mArraylistProfilePosts.get(position).get_id();
+
+                Intent intent = new Intent(getApplicationContext(),ViewPostActivity.class);
+                intent.putExtra("KEY", test);
+                startActivity(intent);
+
+            }
+        });*/
+
     }
 
     public void changeDisplayName(String newName){
@@ -151,6 +238,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         } else if (i == R.id.verify_email_button) {
             sendEmailVerification();
         }*/
+    }
+
+    public void removeClick(String postId) {
+        mDatabase.child(postId).removeValue();
     }
 }
 

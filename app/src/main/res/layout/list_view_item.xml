@@ -14,7 +14,7 @@
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/linlay"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
@@ -49,4 +49,11 @@
         android:textColor="@color/GREY"
         android:textColorLink="@color/GREY"
         android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/profileRemovePost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        android:visibility="gone" />
 </LinearLayout>

@@ -25,9 +25,8 @@ public class ListActivity extends AppCompatActivity {
 
     private static final String TAG = "ListActivity";
 
-    ListView mListView;
+    private ListView mListView;
     private ArrayList<Post> mArraylistSectionPosts = new ArrayList<>();
-    public static String clickedItem;
 
     private DatabaseReference mDatabase;
 

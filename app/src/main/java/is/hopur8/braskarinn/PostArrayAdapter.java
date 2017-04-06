@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,9 +34,21 @@ public class PostArrayAdapter extends ArrayAdapter<Post> {
 
         TextView textView = (TextView) rowView.findViewById(R.id.text1);
         TextView textView2 = (TextView) rowView.findViewById(R.id.text2);
+        Button removeButton = (Button) rowView.findViewById(R.id.profileRemovePost);
 
-        textView.setText(values.get(position).get_title());
-        textView2.setText(values.get(position).get_content());
+        final Post currentPost = values.get(position);
+        textView.setText(currentPost.get_title());
+        textView2.setText(currentPost.get_content());
+        if(context.getClass() == ProfileActivity.class) {
+            removeButton.setVisibility(View.VISIBLE);
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ProfileActivity profile = (ProfileActivity)context;
+                    profile.removeClick(currentPost.get_id());
+                }
+            });
+        }
 
         return rowView;
     }
